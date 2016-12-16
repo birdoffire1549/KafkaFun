@@ -1,0 +1,41 @@
+plugins {
+    id "java"
+    id "eclipse"
+}
+
+def getDate() {
+	return (new Date()).format("MM-dd-yyyy HH:mm:ss")
+}
+
+sourceCompatibility = 1.8
+group = "nttsecurity.com"
+version = "1.0.0"
+
+repositories {
+	mavenCentral()
+}
+
+sourceSets {
+    main {
+        java.srcDirs "src/main/java"
+	    resources.srcDirs "src/main/resources"
+    }
+
+    test {
+		java.srcDir "src/test/java"
+    }
+}
+
+dependencies {
+	compile "org.apache.kafka:kafka-clients:0.10.1.0"
+	testCompile "junit:junit:4.11"
+}
+
+jar {
+    manifest {
+        attributes "Implementation-Title": "ImageProcessingSandBox",
+            "Implementation-Version": version,
+            "Implementation-Vendor": "Firebird CSS",
+            "Build-Date": getDate()
+    }
+}
