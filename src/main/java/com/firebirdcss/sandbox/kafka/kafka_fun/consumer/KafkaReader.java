@@ -14,9 +14,9 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
  *
  */
 public class KafkaReader {
-	private static final String KAFKA_HOST_DEFAULT = "192.168.1.101";
-	private static final String KAFKA_PORT_DEFAULT = "9092";
-	private static final String[] TOPICS_DEFAULT = new String[] {"my-topic"};
+	private static final String KAFKA_HOST_DEFAULT = "192.168.1.100";
+	private static final String KAFKA_PORT_DEFAULT = "9100";
+	private static final String[] TOPICS_DEFAULT = new String[] {"default"};
 	private static final String GROUP_NAME_DEFAULT = "group1";
 	
 	private static boolean showMessages = false;
@@ -35,9 +35,9 @@ public class KafkaReader {
 	 */
 	public static void main(String[] args) {
 		handleProgramArgs(args);
+		init();
 		
 		System.out.println("Starting up with Kafka host of: " + kafkaHost + " and a port of: " + kafkaPort);
-		init();
 		
 		System.out.println("Attempting to subscribe to assigned topic(s)...");
 		consumer.subscribe(Arrays.asList(topics));
