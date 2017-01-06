@@ -8,7 +8,7 @@ def getDate() {
 }
 
 sourceCompatibility = 1.8
-group = "nttsecurity.com"
+group = "firebirdcss.com"
 version = "1.0.0"
 
 repositories {
@@ -34,7 +34,7 @@ dependencies {
 
 jar {
     manifest {
-        attributes "Implementation-Title": "ImageProcessingSandBox",
+        attributes "Implementation-Title": "KafkaFun",
             "Implementation-Version": version,
             "Implementation-Vendor": "Firebird CSS",
             "Build-Date": getDate()
