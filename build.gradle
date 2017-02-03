@@ -34,7 +34,9 @@ dependencies {
 
 
 
-// kafka-consumer.jar
+/**
+ * Task to build the kafka-consumer.jar
+ */
 task buildConsumer(type: Jar, dependsOn: classes) {
 	archiveName = "kafka-consumer.jar"
 	manifest {
@@ -44,12 +46,14 @@ task buildConsumer(type: Jar, dependsOn: classes) {
             "Build-Date": getDate(),
             "Main-Class": "com.firebirdcss.sandbox.kafka.kafka_fun.consumer.KafkaReader"
     }
-	from (sourceSets.main.output) {
+    from (sourceSets.main.output) {
 		include "com/firebirdcss/sandbox/kafka/kafka_fun/consumer/**"
 	}
 }
 
-// kafka-producer.jar
+/** 
+ * Task to build the kafka-producer.jar
+ */
 task buildProducer(type: Jar, dependsOn: classes) {
 	archiveName = "kafka-producer.jar"
 	manifest {
@@ -64,7 +68,3 @@ task buildProducer(type: Jar, dependsOn: classes) {
 	}
 }
 
-jar {
-	tasks.buildConsumer.execute()
-	tasks.buildProducer.execute()
-}
