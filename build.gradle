@@ -49,6 +49,11 @@ task buildConsumer(type: Jar, dependsOn: classes) {
     from (sourceSets.main.output) {
 		include "com/firebirdcss/sandbox/kafka/kafka_fun/consumer/**"
 	}
+	from { 
+		configurations.compile.collect { 
+			it.isDirectory() ? it : zipTree(it) 
+		} 
+	}
 }
 
 /** 
@@ -65,6 +70,11 @@ task buildProducer(type: Jar, dependsOn: classes) {
     }
 	from (sourceSets.main.output) {
 		include "com/firebirdcss/sandbox/kafka/kafka_fun/producer/**"
+	}
+	from { 
+		configurations.compile.collect { 
+			it.isDirectory() ? it : zipTree(it) 
+		} 
 	}
 }
 
