@@ -32,11 +32,39 @@ dependencies {
 	testCompile "junit:junit:4.11"
 }
 
-jar {
-    manifest {
+
+
+// kafka-consumer.jar
+task buildConsumer(type: Jar, dependsOn: classes) {
+	archiveName = "kafka-consumer.jar"
+	manifest {
         attributes "Implementation-Title": "KafkaFun",
             "Implementation-Version": version,
             "Implementation-Vendor": "Firebird CSS",
-            "Build-Date": getDate()
+            "Build-Date": getDate(),
+            "Main-Class": "com.firebirdcss.sandbox.kafka.kafka_fun.consumer.KafkaReader"
     }
+	from (sourceSets.main.output) {
+		include "com/firebirdcss/sandbox/kafka/kafka_fun/consumer/**"
+	}
+}
+
+// kafka-producer.jar
+task buildProducer(type: Jar, dependsOn: classes) {
+	archiveName = "kafka-producer.jar"
+	manifest {
+        attributes "Implementation-Title": "KafkaFun",
+            "Implementation-Version": version,
+            "Implementation-Vendor": "Firebird CSS",
+            "Build-Date": getDate(),
+            "Main-Class": "com.firebirdcss.sandbox.kafka.kafka_fun.producer.KafkaSender"
+    }
+	from (sourceSets.main.output) {
+		include "com/firebirdcss/sandbox/kafka/kafka_fun/producer/**"
+	}
+}
+
+jar {
+	tasks.buildConsumer.execute()
+	tasks.buildProducer.execute()
 }
