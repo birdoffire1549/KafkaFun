@@ -15,7 +15,7 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
  */
 public class KafkaReader {
 	private static final String KAFKA_HOST_DEFAULT = "192.168.1.100";
-	private static final String KAFKA_PORT_DEFAULT = "9100";
+	private static final String KAFKA_PORT_DEFAULT = "9092";
 	private static final String[] TOPICS_DEFAULT = new String[] {"default"};
 	private static final String GROUP_NAME_DEFAULT = "group1";
 	

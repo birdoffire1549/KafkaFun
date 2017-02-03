@@ -16,7 +16,7 @@ import org.apache.kafka.clients.producer.ProducerRecord;
  */
 public class KafkaSender {
 	private static final String KAFKA_HOST_DEFAULT = "192.168.1.100";
-	private static final String KAFKA_PORT_DEFAULT = "9100";
+	private static final String KAFKA_PORT_DEFAULT = "9092";
 	private static final String TOPIC_DEFAULT = "default";
 	private static final int PUB_RATE_PER_SECOND_DEFAULT = 1000; // ~1K/S Logs
 	private static final int PAYLOAD_SIZE_BYTES_DEFAULT = 1024; // ~1KB
