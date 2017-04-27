@@ -1,4 +1,4 @@
-package com.firebirdcss.sandbox.kafka.kafka_fun;
+package com.firebirdcss.sandbox.kafka.kafka_fun.tools;
 
 import java.util.Arrays;
 import java.util.Properties;
