@@ -20,10 +20,10 @@ import org.apache.kafka.clients.producer.ProducerRecord;
  *
  */
 public class KafkaTopicCopier {
-	private static final String KAFKA_HOST = "192.168.1.214";
+	private static final String KAFKA_HOST = "kafka01.domain.com";
 	private static final String KAFKA_PORT = "9092";
-	private static final String TOPIC_IN = "CUSTOM-IN-TOPIC";
-	private static final String TOPIC_OUT = "NEW-OUT-TOPIC";
+	private static final String TOPIC_IN = "TOPIC-1";
+	private static final String TOPIC_OUT = "TEST-TOPIC-1";
 	private static final String GROUP_NAME = "group1";
 	
 	private static KafkaConsumer<String, String> consumer = null;

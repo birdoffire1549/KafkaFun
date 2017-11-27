@@ -14,10 +14,10 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
  *
  */
 public class KafkaReader {
-	private static final String KAFKA_HOST_DEFAULT = "192.168.1.100";
+	private static final String KAFKA_HOST_DEFAULT = "kafka01.domain.com";
 	private static final String KAFKA_PORT_DEFAULT = "9092";
-	private static final String[] TOPICS_DEFAULT = new String[] {"default"};
-	private static final String GROUP_NAME_DEFAULT = "group1";
+	private static final String[] TOPICS_DEFAULT = new String[] {"TOPIC-1"};
+	private static final String GROUP_NAME_DEFAULT = "funGroup";
 	
 	private static boolean showMessages = false;
 	
@@ -41,6 +41,9 @@ public class KafkaReader {
 		
 		System.out.println("Attempting to subscribe to assigned topic(s)...");
 		consumer.subscribe(Arrays.asList(topics));
+//		List<TopicPartition> list = new ArrayList<>();
+//		list.add(new TopicPartition("AGI-TOPIC-3947", 2));
+//		consumer.assign(list);
 		System.out.println("Topic subscription complete.");
 		
 		boolean running = true;
@@ -52,7 +55,7 @@ public class KafkaReader {
 			System.out.print(recordCount);
 		}
 		while (running) {
-			ConsumerRecords<String, String> records = consumer.poll(100/*TimeOutMillis*/);
+			ConsumerRecords<String, String> records = consumer.poll(2000/*TimeOutMillis*/);
 			if (records.isEmpty()) {
 				try {	
 					Thread.sleep(500);
